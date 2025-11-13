@@ -55,8 +55,10 @@ import numpy as np
 # print(arr7.T)
 
 def neuralNetwork(inps, weights):
-    prediction_h = inps.dot(weights[0])
-    prediction_out = prediction_h.dot(weights[1])
+    prediction_h1 = inps.dot(weights[0])
+    prediction_h2 = prediction_h1.dot(weights[1])
+    prediction_out_h3 = prediction_h2 * weights[2]
+    prediction_out = prediction_out_h3.dot(weights[3])
     return prediction_out
 
 inp = np.array([23, 45])
@@ -66,10 +68,12 @@ weight_h_2 = np.array([0.3, 0.2])
 weight_out_1 = np.array([0.4, 0.1])
 weight_out_2 = np.array([0.3, 0.1])
 
-weight_h = np.array([weight_h_1, weight_h_2]).T
+weight_h1 = np.array([weight_h_1, weight_h_2]).T
+weight_h2 = np.array([0.6, 0.2])
+weight_out_h3 = np.array([0.7, 0.4])
 weight_out = np.array([weight_out_1, weight_out_2]).T
 
-weights = [weight_h, weight_out]
+weights = [weight_h1, weight_h2, weight_out_h3, weight_out]
 
 print(neuralNetwork(inp, weights))
 
