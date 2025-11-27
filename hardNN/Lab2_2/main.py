@@ -49,3 +49,6 @@ for i in range(num_epoch):
         print("Predictions: %s, true_predictions: %s" %(layer_out, true_prediction[i:i+1]))
     print("Errors: %.4f" % layer_out_error)
     print("----------------------")
+
+
+x(relu)*y(dot)
